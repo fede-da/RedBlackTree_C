@@ -17,6 +17,6 @@ Balancing is ensured by 6 violation cases, no need to check heights.
 
 If you need a "delete node" function you should do it by yourself, just remember that each node has a pointer 
 to its parent so you need to update all parent pointers before deleting the node. Then call fix on the new node
-that could lead to a violation. This (link)[https://en.wikipedia.org/wiki/Red–black_tree] may help but must be revisited.
+that could lead to a violation. This link https://en.wikipedia.org/wiki/Red–black_tree may help but must be revisited.
 
 For any need, feel free to contact me.
