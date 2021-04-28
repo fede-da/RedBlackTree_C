@@ -3,7 +3,7 @@ A simple but working Red Black Tree implementation.
 
 The program is very easy to use, just insert numbers. By the way text on console may guide you.
 
-The structure "node" has 2 childrean (left, right) and one more pointer to its parent with key-value fields.
+The structure "node" has 2 sons (left, right) and one more pointer to its parent with key-value fields.
 
 Inside this program you will find these functions :
 
