@@ -91,7 +91,7 @@ void filler(tuple** line,mynode* root,int level)
         filler(line,root->right,level+1);
         return;
     }
-    else printf("Error in filler\n");
+    else printf("Error filler\n");
 }
 
 void print_line(tuple**print_t,int level,int size)
@@ -159,7 +159,7 @@ void print_line(tuple**print_t,int level,int size)
                   printf("\033[1;31m%s%d\033[0m",numbers,(print_t[level][i]).val);
                 else if ( (print_t[level][i]).color==BLACK )
                  printf("\033[1;30m%s%d\033[0m",numbers,(print_t[level][i]).val);//1;30m
-                else printf("Errore nello stampare elemento in posizione %d\n",i);
+                else printf("Error position : %d\n",i);
             }
             free(numbers);
             free(elem);
@@ -182,7 +182,7 @@ void print_line(tuple**print_t,int level,int size)
 
 void tree_print(mynode*node){
     //alloco spazio per matrice con valori albero
-    printf("Stampo l'albero : \n");
+    printf("Print tree : \n");
     tuple**print_t=(tuple**)malloc(8*sizeof(tuple*)); //tuple **
     int i;
     int j;
@@ -217,9 +217,8 @@ void tree_print(mynode*node){
 }
 
 void welcome(){
-   printf("\nBenvenuto nel Red-Black Tree Builder dove creeremo un albero rosso-nero nodo per nodo!\n"
-           "I nodi hanno delle chiavi che gestirò io per te!\n"
-           "Inserisci un valore intero qualsiasi : \n");
+   printf("\nWelcome to the Red-Black Tree Builder where we will create our tree!\n"
+           "Insert a numeric value : \n");
            return;
 }
 
@@ -239,7 +238,7 @@ void rightRotate (mynode * root)
         ins=1; //Inserirò a destra
         if (root==NULL ||  (root)->left==NULL)
         {
-            printf ("Errore in RightRotate()\n");
+            printf ("Error in RightRotate()\n");
             return ;
         }
         mynode *x = root->left;
@@ -254,7 +253,7 @@ void rightRotate (mynode * root)
  
     if(ins==0) tmp->left=x;
     else tmp->right=x;
-    printf("Rotazione conclusa\n");
+
     return ;
 }
 
@@ -266,7 +265,7 @@ void leftRotate(mynode *root)
         ins=1; //Inserirò a destra
     if (root==NULL ||  (root)->right==NULL)
     {
-        printf ("Erroe in leftRotate()\n");
+        printf ("Error leftRotate()\n");
         return ;
      }
     mynode *y = root->right;        
@@ -282,24 +281,23 @@ void leftRotate(mynode *root)
 
     if(ins==0) tmp->left=y;
     else tmp->right=y;
-    printf("Rotazione conclusa\n");
     return ;
 }
 
 void case1(mynode*node,int ruota)
 {
-    printf("case1 su nodo : %d\n",node->value);
+    printf("case1 on node : %d\n",node->value);
     node->parent->parent->color=RED;
     node->parent->color=BLACK;
     mynode*tmp = node->parent;
     if (ruota==0) rightRotate(node->parent->parent);
     else if (ruota==1) leftRotate(node->parent->parent);
-    else printf("Case1 fa cose strane\n");
+    else printf("Case1 is weird\n");
 }
 
 void case2(mynode*node,int ruota)
 {
-    printf("case2 su nodo : %d\n",node->value);
+    printf("case2 on node : %d\n",node->value);
     mynode*p=node->parent;
     if(ruota==0) 
         rightRotate(node->parent);
@@ -307,7 +305,7 @@ void case2(mynode*node,int ruota)
         leftRotate(node->parent);
     else 
     {
-        printf("Case2 fa cose strane\n");
+        printf("Case2 is weird\n");
         return;
     }
     if(ruota==0)
@@ -319,7 +317,7 @@ void case2(mynode*node,int ruota)
 
 void case3 (mynode*node,mynode*root,int n)
 {
-    printf("case3 su nodo : %d\n",node->value);
+    printf("case3 on node : %d\n",node->value);
     if(node==NULL)
     {
          printf("Invalid arguments case 3\n");
@@ -327,17 +325,17 @@ void case3 (mynode*node,mynode*root,int n)
     }
     else if ( node->parent==NULL ) 
     {
-        printf("Siamo finiti dove non dovremmo\n");
+        printf("???\n");
         return;
     }
     else if (node->parent->parent==NULL) { //Radice, ricoloro di nero
-    printf("Ricoloro la radice\n");
+    printf("Colorize root\n");
         node->color=BLACK;
         return;
     }
     else {
         if(node->parent->color==BLACK) return;
-        printf("Proseguo con case 3\n");
+        printf("Going on with case3\n");
         mynode*gp = node->parent->parent;
         gp->right->color = BLACK;
         gp->left->color = BLACK;
@@ -357,7 +355,7 @@ mynode* getLeftUncle(mynode*node) {return ( getGrandParent(node) )->left;}
 void fix(mynode*node,mynode*root) {
     printf("Fixing up\n");
     if (node==NULL) {
-        printf("Errore fix su NULL\n");
+        printf("Error fix called on NULL\n");
         return;
     }
     else if (root==node) {
@@ -410,33 +408,33 @@ void fix(mynode*node,mynode*root) {
 
 void insert(mynode*node,mynode*root,int val, int key) {
     if(node==NULL) {
-        printf("Errore ritorno NULL\n");
+        printf("Error NULL\n");
         return ;
     }
     else 
     {
         if(val <= node->value ) {
             if(node->left==NULL){
-                printf("Inserisco valore %d a sinistra del nodo : %d\n",val,node->value);
+                printf("Insert value %d on the left of : %d\n",val,node->value);
                 node->left=red_node_create(node,key,val);
                 tree_print(root);
                 fix(node->left,root);
             }
             else {
-                printf("Il valore da inserire %d è minore del nodo : %d, vado a sinistra\n",val,node->value);
+                printf("Inserted value %d is lower than : %d, going left\n",val,node->value);
                 insert(node->left,root,val,key);
             }
         }
         else if (val > node->value){
             if(node->right==NULL)
             {
-                printf("Inserisco valore %d a destra del nodo : %d\n",val,node->value);
+                printf("Inserting value %d on the left of node : %d\n",val,node->value);
                 node->right=red_node_create(node,key,val);
                 tree_print(root);
                 fix(node->right,root);
             }
             else {
-                printf("Il valore da inserire %d è maggiore del nodo : %d, vado a destra\n",val,node->value);
+                printf("Value %d is bigger than : %d, going right\n",val,node->value);
                 insert(node->right,root,val,key);
             }
         }
@@ -484,23 +482,23 @@ int getInput(char* string, size_t string_max) // add parameter to get buffer siz
             {
                 inp_as_int=strtol(string,&t,10);
                 if(inp_as_int==0 && errno==EINVAL )
-                    printf("Riprova\n");
+                    printf("Try again\n");
                 else if (inp_as_int==0 && errno!=EINVAL) {
-                    printf("Valore preso : %d\n", inp_as_int);
+                    printf("Value taken : %d\n", inp_as_int);
                     return 0;
                 }
-                else if (inp_as_int < 0) 
-                    printf("inserisci un valore valido!\n");
+                else if (inp_as_int < 0)
+                    printf("Insert a valid number !\n");
                 else
                 { 
-                    printf("Valore preso : %d\n",inp_as_int);
+                    printf("Value taken : %d\n",inp_as_int);
                     return inp_as_int;
                 }
             }
-            else printf("Inserisci un valore\n");
+            else printf("Insert a valid value\n");
         }
     }
-    printf("Errore return -1\n");
+    printf("Error return -1\n");
     return -1;
 }
 

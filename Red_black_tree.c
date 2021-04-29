@@ -18,21 +18,22 @@ int main (){
     welcome();
 
     mynode*root=NULL;
-    getInput(input,12);
-    root=black_node_create(NULL,0,0);
-    root->parent=NULL;
-    root->right=black_node_create(root,key++,atoi(input));
-    root->right->parent=root;
-    printf("Node created!\n");
-    tree_print(root->right);
-    printf("Insert number : \n");
-    while (memcmp("\n",input,1)!=0 )
-    {
         getInput(input,12);
-        insert(root->right,root->right,atoi(input),key++);
+        root=black_node_create(NULL,0,0);
+        root->parent=NULL;
+        root->right=black_node_create(root,key++,atoi(input));
+        root->right->parent=root;
         printf("Node created!\n");
         tree_print(root->right);
-        printf("Do you want to continue? Yes -> Insert number, ENTER -> stop\n");
-    }
-    return 0;
+        printf("Insert number : \n");
+        while (memcmp("\n",input,1)!=0 )
+        {
+            getInput(input,12);
+            insert(root->right,root->right,atoi(input),key++);
+            printf("Node created!\n");
+            tree_print(root->right);
+            printf("Do you want to continue? Yes -> Insert number, ENTER -> stop\n");
+        }
+        return 0;
+
 }

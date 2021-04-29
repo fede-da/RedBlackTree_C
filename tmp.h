@@ -16,13 +16,11 @@ struct tree{
     struct tree *parent;
 };
 
-mynode* red_node_create(mynode*node, int key, int val);
+mynode* red_node_create(mynode*p,int Key, int Value);
 
-mynode* black_node_create(mynode*node, int key, int val);
-
+mynode* black_node_create(mynode*p,int Key, int Value) ;
 
 void tree_print(mynode*node);
-
 
 void insert ( mynode*node,mynode*root,int val,int key);
 
