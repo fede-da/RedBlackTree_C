@@ -11,7 +11,7 @@ In order to use it follow these steps :
 
 - Open terminal.
 - Move to the folder that contains this project.
-- Copy paste " gcc Red_black_tree.c -o projectName "
+- Copy paste " gcc *.c -o projectName "
 - To execute : " ./projectName "
 
 
