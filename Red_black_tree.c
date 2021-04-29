@@ -5,30 +5,10 @@
 //
 
 #include "tmp.h"
-#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
-
-mynode* red_node_create(mynode*node, int key, int val);
-
-mynode* black_node_create(mynode*node, int key, int val);
-
-
-void tree_print(mynode*node);
-
-
-void insert ( mynode*node,mynode*root,int val,int key);
-
-void node_free (mynode* node);
-
-void tree_free (mynode* root);
-
-void welcome();
-
-int isInt (char* string);
-
-int getInput(char* string, size_t string_max); // add parameter to get buffer size
-
-
+#include <string.h>
 
 int main (){
     int key=1;
@@ -43,16 +23,16 @@ int main (){
     root->parent=NULL;
     root->right=black_node_create(root,key++,atoi(input));
     root->right->parent=root;
-    printf("Node created!\n");
+    printf("Nodo creato!\n");
     tree_print(root->right);
-    printf("Insert a number : \n");
+    printf("Inserisci un numero : \n");
     while (memcmp("\n",input,1)!=0 )
     {
         getInput(input,12);
         insert(root->right,root->right,atoi(input),key++);
-        printf("Node created!\n");
+        printf("Nodo creato!\n");
         tree_print(root->right);
-        printf("Do you want to continue? Yes -> Insert a number, ENTER -> stop\n");
+        printf("Vuoi continuare? Si -> Inserisci un numero, ENTER -> termina\n");
     }
     return 0;
 }
