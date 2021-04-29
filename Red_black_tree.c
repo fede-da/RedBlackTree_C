@@ -23,16 +23,16 @@ int main (){
     root->parent=NULL;
     root->right=black_node_create(root,key++,atoi(input));
     root->right->parent=root;
-    printf("Nodo creato!\n");
+    printf("Node created!\n");
     tree_print(root->right);
-    printf("Inserisci un numero : \n");
+    printf("Insert number : \n");
     while (memcmp("\n",input,1)!=0 )
     {
         getInput(input,12);
         insert(root->right,root->right,atoi(input),key++);
-        printf("Nodo creato!\n");
+        printf("Node created!\n");
         tree_print(root->right);
-        printf("Vuoi continuare? Si -> Inserisci un numero, ENTER -> termina\n");
+        printf("Do you want to continue? Yes -> Insert number, ENTER -> stop\n");
     }
     return 0;
 }
