@@ -4,7 +4,7 @@
 //  Created by Federico D'Armini on 25/11/2019.
 //
 
-#include "tmp.h"
+#include "functions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
