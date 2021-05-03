@@ -1,4 +1,4 @@
-#include "tmp.h"
+#include "functions.h"
 
 #define BLACK 1 
 #define RED 0
