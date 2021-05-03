@@ -3,7 +3,7 @@ A simple but working Red Black Tree implementation.
 
 @Before -> Nodes are printed on screen with black and red colors so use a terminal with white background (or whatever you like but not these 2 colors).
 
-If you want to change print colors further informations are avaible in ".h" file within print functions.
+If you want to change colors further informations are avaible in ".h" file within print functions.
 
 The program is very easy to use, just insert numbers. By the way text on console may guide you.
 
@@ -15,7 +15,7 @@ In order to use it follow these steps :
 - To execute : " ./projectName "
 
 
-The structure "node" has 2 sons (left, right) and one more pointer to its parent with key-value and color fields.
+Structure "node" has 2 sons (left, right) and one more pointer to its parent with key-value and color fields.
 
 Inside this program you will find these functions :
 
