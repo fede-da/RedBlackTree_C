@@ -11,9 +11,7 @@ In order to use it follow these steps :
 
 - Open terminal.
 - Move to the folder that contains this project.
-- Copy paste " gcc *.c -o projectName "
-- To execute : " ./projectName "
-
+- type make
 
 Structure "node" has 2 sons (left, right) and one more pointer to its parent with key-value and color fields.
 
