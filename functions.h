@@ -1,5 +1,5 @@
-#ifndef _TMP_H
-#define _TMP_H
+#ifndef _FUNCTIONS_H
+#define _FUNCTIONS_H
 
 #include <stdio.h>
 #include <stdlib.h>
